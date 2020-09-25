@@ -1,0 +1,5 @@
+Tony 	  = class carte    ---->
+Alexandre = class croupier ---->
+Rayane 	  = class joueur   ---->
+
+reste : class partie , class coup

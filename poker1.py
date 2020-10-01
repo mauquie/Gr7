@@ -1,10 +1,17 @@
 import random
 
-class Carte:
-    """
-    Constructeur qui initialisation les couleurs et les rangs des cartes
-    """
+class Partie:
+    
     def __init__(self):
+        nombre_joueurs(input("Entrer le nombre de joueur: "))
+        for i in range (nombre_joueurs):
+            nom=str(input("Entrer le nom du joueur: "))
+            nom = Joueur()
+    pass
+    
+class Carte:
+
+    def __init__(self): #Constructeur: Initialisation des couleurs et des rangs des cartes
         self.couleur=["P","C","K","T"]
         self.rang=["2","3","4","5","6","7","8","9","10","V","D","R","A"]
 
@@ -42,19 +49,38 @@ class Croupier(Carte):
         self.melanger()
         self.couper()
 
-    def distribuer(self):   #Méthode: Distribuer au joueur
-        pass
+class Joueur(Croupier):
 
+    def __init__(self, nom="Joueur", main=0, tapis=500):
+        Croupier.__init__(self)
+        self.nom=nom
+        self.main=main
+        self.tapis=tapis
+
+    def vider_main(self):
+        for i in range (2):
+            self.main.pop()
+
+    def recevoir_main(self):
+        if len(self.main)!=0:
+            vider_main()
+        for i in range (2):
+            self.main.append(self.paquet[-1])
+            self.main.pop()
+            
 #Programme principal
 test = Croupier()
 print(len(test.paquet))
 print(test.paquet)
+
 test.rassembler()
 print(len(test.paquet))
 print("\n",test.paquet)
+
 test.melanger()
 print(len(test.paquet))
 print("\n",test.paquet)
+
 test.couper()
 print(len(test.paquet))
 print("\n",test.paquet)

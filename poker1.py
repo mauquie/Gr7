@@ -1,14 +1,18 @@
 import random
 
 class Partie:
-    
+
     def __init__(self):
-        nombre_joueurs(input("Entrer le nombre de joueur: "))
+        pass
+
+    def joueurs(self):
+        self.liste_joueurs=[]
+        self.nombre_joueurs=int(input("Entrer le nombre de joueur: "))
+        k=0
         for i in range (nombre_joueurs):
-            nom=str(input("Entrer le nom du joueur: "))
-            nom = Joueur()
-    pass
-    
+            k=k+1
+            self.liste_joueurs.append(str(input("Entrer le nom du joueur {0}: ".format(k))))
+
 class Carte:
 
     def __init__(self): #Constructeur: Initialisation des couleurs et des rangs des cartes
@@ -51,36 +55,49 @@ class Croupier(Carte):
 
 class Joueur(Croupier):
 
-    def __init__(self, nom="Joueur", main=0, tapis=500):
+    def __init__(self, nom="Joueur", main=None, tapis=500):
         Croupier.__init__(self)
         self.nom=nom
         self.main=main
         self.tapis=tapis
 
     def vider_main(self):
-        for i in range (2):
-            self.main.pop()
+        self.main=[]
 
     def recevoir_main(self):
         if len(self.main)!=0:
             vider_main()
         for i in range (2):
             self.main.append(self.paquet[-1])
-            self.main.pop()
-            
-#Programme principal
-test = Croupier()
-print(len(test.paquet))
-print(test.paquet)
+            self.paquet.pop()
 
-test.rassembler()
-print(len(test.paquet))
-print("\n",test.paquet)
+class Coup(Joueurs,Croupier,Partie):
 
-test.melanger()
-print(len(test.paquet))
-print("\n",test.paquet)
+    def __init__(self):
+        Joueur.__init__(self)
+        Croupier.__init__(self)
+        Partie.__init__(self)
 
-test.couper()
-print(len(test.paquet))
-print("\n",test.paquet)
+    def nouvelle_donne(self):
+        for i in range (0,self.nombre_joueurs):
+            liste_joueurs[i]=Joueurs(liste_joueurs[i])
+            liste_joueurs[i].recevoir_main()
+    
+""" >>> test croupier
+a = Croupier()
+paquet=a.paquet
+def afficher_paquet(paquet):
+    print("Longeur du paquet: ",len(a.paquet))
+    print("\n",a.paquet,"\n")
+
+afficher_paquet(paquet)
+
+a.rassembler()
+afficher_paquet(paquet)
+
+a.melanger()
+afficher_paquet(paquet)
+
+a.couper()
+afficher_paquet(paquet)
+"""

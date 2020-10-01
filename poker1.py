@@ -16,8 +16,8 @@ class Partie:
 class Carte:
 
     def __init__(self): #Constructeur: Initialisation des couleurs et des rangs des cartes
-        self.couleur=["P","C","K","T"]
         self.rang=["2","3","4","5","6","7","8","9","10","V","D","R","A"]
+        self.couleur=["P","C","K","T"]  
 
 class Croupier(Carte):
 
@@ -26,14 +26,10 @@ class Croupier(Carte):
         self.paquet=[]  #Initialisation du paquet
         
     def rassembler(self):   #Méthode: Créer le paquet
-        self.paquet=[[] for i in range(52)] #Créer les 52 places du paquet
-        compteur=0
-        for i in range (4):
-          for j in range (13):
-            self.paquet[compteur].append(self.rang[j])
-            self.paquet[compteur].append(self.couleur[i])
-            compteur=compteur+1
-    
+        for couleur in self.couleur:
+          for rang in self.rang:
+            self.paquet.append([rang+couleur])
+
     def melanger(self): #Méthode: Mélanger le paquet
         random.shuffle(self.paquet)
 
@@ -67,11 +63,11 @@ class Joueur(Croupier):
     def recevoir_main(self):
         if len(self.main)!=0:
             vider_main()
-        for i in range (2):
+        for i in range (5):
             self.main.append(self.paquet[-1])
             self.paquet.pop()
 
-class Coup(Joueurs,Croupier,Partie):
+class Coup(Croupier,Partie):
 
     def __init__(self):
         Joueur.__init__(self)
@@ -83,7 +79,6 @@ class Coup(Joueurs,Croupier,Partie):
             liste_joueurs[i]=Joueurs(liste_joueurs[i])
             liste_joueurs[i].recevoir_main()
     
-""" >>> test croupier
 a = Croupier()
 paquet=a.paquet
 def afficher_paquet(paquet):
@@ -100,4 +95,3 @@ afficher_paquet(paquet)
 
 a.couper()
 afficher_paquet(paquet)
-"""

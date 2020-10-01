@@ -1,5 +1,4 @@
 
-
 class Joueur:
 
     def __init__(self,Nom=input("Entrez votre nom : "),Main=[],Tapis=50):
@@ -13,7 +12,7 @@ class Joueur:
     
     
     def Evaluer():
-        CarteForte=(,,,,) # la main la plus faible
+        CarteForte=(,,,,) # la main la plus faible (FACULTATIF POUR L'INSTANT)
         Paire=(,,,,)
         DeuxPaires=(,,,,)
         Brelan=(,,,,)

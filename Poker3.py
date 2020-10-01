@@ -13,22 +13,27 @@ class Joueur:
     
     
     def Evaluer():
+        CarteForte=(,,,,) # la main la plus faible
         Paire=(,,,,)
-        Couleur=(,,,,)
-        CarredAs=(,,,,)
-        Full=(,,,,)
-        Suite=(,,,,)
-        Brelan=(,,,,)
         DeuxPaires=(,,,,)
-        quinteFlush1=(, , , , )
-        quinteFlush2=(, , , , )
-        quinteFlush3=(, , , , )
-        quinteFlush4=(, , , , )
-        quinteFlush5=(, , , , )
-        quinteFlush6=(, , , , )
-        quinteFlush7=(, , , , )
-        quinteFlush8=(, , , , )
-        quinteFlushRoyale=(, , , , )
+        Brelan=(,,,,)
+        Suite=(,,,,)
+        Couleur=(,,,,)
+        Full=(,,,,)
+        Carré=(,,,,)
+        QuinteFlush1=(,,,,)
+        QuinteFlush2=(,,,,)
+        QuinteFlush3=(,,,,)
+        QuinteFlush4=(,,,,)
+        QuinteFlush5=(,,,,)
+        QuinteFlush6=(,,,,)
+        QuinteFlush7=(,,,,)
+        QuinteFlush8=(,,,,)
+        QuinteFlushRoyale=(,,,,)
+        
+        
+        
+        
        
         
         

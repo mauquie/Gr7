@@ -84,5 +84,3 @@ print("\n",test.paquet)
 test.couper()
 print(len(test.paquet))
 print("\n",test.paquet)
-
-test commit

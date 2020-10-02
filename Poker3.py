@@ -1,26 +1,32 @@
-class Joueur(carte):
 
-    def __init__(self,Nom=input("Entrez votre nom : "),Main=[],Tapis=50):
+
+class Joueur(Croupier
+             ):
+
+    def __init__(self,Nom=input("Entrez votre nom : "),Main=[],Tapis=1000):
         self.Nom=Nom
         self.Main=Main
         self.Tapis=Tapis
+        
+    def Recevoir_carte(self):
+        
         
     
     def Nouvelle_donne(self):
         # réinitialise la main du joueur (le plus de carte en main)
     
     
-    def Evaluer(self,couleur,rang):
+    def Evaluer(self,Combinaison):
         
         
         
         CarteForte=(,,,,) # la main la plus faible (FACULTATIF POUR L'INSTANT)
-        Paire=(,,,,)
-        DeuxPaires=(,,,,)
-        Brelan=(,,,,)
-        Suite=(,,,,)
-        Couleur=(,,,,)
-        Full=(,,,,)
+        Paire=[[Q,P],[Q,C],[]]
+        DeuxPaires=[[,],[,],[,],[,],[,]]
+        Brelan=[[,],[,],[,],[,],[,]]
+        Suite=[[,],[,],[,],[,],[,]]
+        Couleur=[[,],[,],[,],[,],[,]]
+        Full=[[,],[,],[,],[,],[,]]
         Carré=[A,P],[A,C],[A,K],[A,T],[]
         
         QuinteFlush11=[[2,P],[3,P],[4,P],[5,P],[6,P]]
@@ -72,14 +78,6 @@ class Joueur(carte):
         
         
         
-       
-        
-        
-        
-        
-    def Recevoir(self):
-        #Donne de nouvelles cartes au joueur (fournies par Croupier)
-        #En attente de croupier
         
     
 

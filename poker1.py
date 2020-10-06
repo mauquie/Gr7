@@ -1,4 +1,5 @@
 import random
+import pokerlib
 
 class Partie:
 
@@ -58,6 +59,15 @@ class Joueur(Croupier):
     def vider_main(self):
         self.main.clear()
 
+    def Evaluer(self,Combinaison):
+        if Combinaison1 > Combinaison2:
+            print("La Main 1 est plus forte que la Main 2") 
+        elif combinaison1 == combinaison2 :
+            print("La Main 1 et la Main 2 ont la même valeur") 
+        else:
+            print("La Main 2 est plus forte que la Main 1")
+            # ou encore combinaison_max = max([combinaison1, combinaison2])
+
     def recevoir_main(self):
         if len(self.main)!=0:
             Joueur.vider_main()
@@ -73,7 +83,8 @@ class Coup(Croupier,Partie):
 
     def nouvelle_donne(self):
         pass
-    
+
+"""   
 def test_croupier():
     a = Croupier()
     paquet=a.paquet
@@ -93,3 +104,10 @@ def test_croupier():
     afficher_paquet(paquet)
 
 test_croupier()
+"""
+
+Main1 = [Carte(), Carte(), Carte(), Carte(), Carte()] 
+Main2 = [Carte(), Carte(), Carte(), Carte(), Carte()]
+Combinaison1 = pokerlib.Combinaison(main1)
+Combinaison2 = pokerlib.Combinaison(main2)
+print(Combinaison1.name(), Combinaison2.name())

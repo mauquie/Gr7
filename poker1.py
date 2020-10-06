@@ -2,16 +2,14 @@ import random
 
 class Partie:
 
+    joueurs = []
+    
     def __init__(self):
         pass
 
-    def joueurs(self):
-        self.liste_joueurs=[]
-        self.nombre_joueurs=int(input("Entrer le nombre de joueur: "))
-        k=0
-        for i in range (nombre_joueurs):
-            k=k+1
-            self.liste_joueurs.append(str(input("Entrer le nom du joueur {0}: ".format(k))))
+    def jouer(self, tapis="500", nom="Joueur"):
+        joueur = Joueur(tapis,nom)
+        Partie.joueurs.append(joueur)
 
 class Carte:
 
@@ -34,7 +32,7 @@ class Croupier(Carte):
         random.shuffle(self.paquet)
 
     def couper(self):   #Méthode: Couper le paquet
-        liste_t1=[]     #Liste temporaire 1
+        liste_t1=[]     #Liste temporaire  1
         liste_t2=[]     #Liste temporaire 2
         a=random.randint(0,52)  #Valeur aléatoire
         for i in range(0,a):
@@ -51,18 +49,18 @@ class Croupier(Carte):
 
 class Joueur(Croupier):
 
-    def __init__(self, nom="Joueur", main=None, tapis=500):
+    def __init__(self, tapis, nom, combinaison):
         Croupier.__init__(self)
         self.nom=nom
-        self.main=main
+        self.main=[]
         self.tapis=tapis
 
     def vider_main(self):
-        self.main=[]
+        self.main.clear()
 
     def recevoir_main(self):
         if len(self.main)!=0:
-            vider_main()
+            Joueur.vider_main()
         for i in range (5):
             self.main.append(self.paquet[-1])
             self.paquet.pop()
@@ -70,28 +68,28 @@ class Joueur(Croupier):
 class Coup(Croupier,Partie):
 
     def __init__(self):
-        Joueur.__init__(self)
         Croupier.__init__(self)
         Partie.__init__(self)
 
     def nouvelle_donne(self):
-        for i in range (0,self.nombre_joueurs):
-            liste_joueurs[i]=Joueurs(liste_joueurs[i])
-            liste_joueurs[i].recevoir_main()
+        pass
     
-a = Croupier()
-paquet=a.paquet
-def afficher_paquet(paquet):
-    print("Longeur du paquet: ",len(a.paquet))
-    print("\n",a.paquet,"\n")
+def test_croupier():
+    a = Croupier()
+    paquet=a.paquet
+    def afficher_paquet(paquet):
+        print("Longeur du paquet: ",len(a.paquet))
+        print("\n",a.paquet,"\n")
 
-afficher_paquet(paquet)
+    afficher_paquet(paquet)
 
-a.rassembler()
-afficher_paquet(paquet)
+    a.rassembler()
+    afficher_paquet(paquet)
 
-a.melanger()
-afficher_paquet(paquet)
+    a.melanger()
+    afficher_paquet(paquet)
 
-a.couper()
-afficher_paquet(paquet)
+    a.couper()
+    afficher_paquet(paquet)
+
+test_croupier()

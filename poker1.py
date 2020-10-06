@@ -8,26 +8,30 @@ class Partie:
     def __init__(self):
         pass
 
-    def jouer(self, tapis="500", nom="Joueur"): #Initilisation des joueurs
+    def jouer(self, nom="Joueur", tapis="500"): #Initilisation des joueurs
         joueur = Joueur(tapis,nom)
         Partie.joueurs.append(joueur)
 
 class Carte:
 
-    def __init__(self): #Constructeur: Initialisation des couleurs et des rangs des cartes
-        self.rang=["2","3","4","5","6","7","8","9","10","V","D","R","A"]
-        self.couleur=["P","C","K","T"]  
+    def __init__(self, couleur, rang): #Constructeur: Initialisation des couleurs et des rangs des cartes
+        self.rang=rang
+        self.couleur=couleur
 
-class Croupier(Carte):
+    def __repr__(self):
+        return f"{self.rang}{self.couleur}"
+
+class Croupier:
 
     def __init__(self):
-        Carte.__init__(self)    #Appel de la classe mère
+        #Carte.__init__(self)    #Appel de la classe mère
         self.paquet=[]  #Initialisation du paquet
         
     def rassembler(self):   #Méthode: Créer le paquet
-        for couleur in self.couleur:
-          for rang in self.rang:
-            self.paquet.append([rang+couleur])
+        for couleur in ["P","C","K","T"]:
+          for rang in ["2","3","4","5","6","7","8","9","X","V","D","R","A"]:
+            carte = Carte(couleur, rang)
+            self.paquet.append(carte)
 
     def melanger(self): #Méthode: Mélanger le paquet
         random.shuffle(self.paquet)
@@ -77,6 +81,9 @@ class Joueur(Croupier):
             print("La Main 2 est plus forte que la Main 1")
             # ou encore combinaison_max = max([combinaison1, combinaison2])
 
+    def __repr__(self):
+        return f"{self.nom}"
+
 class Coup(Croupier,Partie):
 
     def __init__(self):
@@ -86,7 +93,7 @@ class Coup(Croupier,Partie):
     def nouvelle_donne(self):
         pass
 
-#Test avec 2 joueurs
+#Test
 new = Partie()
 new.jouer("Tony")
 new.jouer("Alexandre")
@@ -102,15 +109,15 @@ print("\n",a.paquet,"\n")
 
 for i in range (0,len(new.joueurs)):
     print("Joueur",i,":",new.joueurs[i])
-    print("Main de",i,":",new.joueurs[i].main)
+    print("Main de",i,":",new.joueurs[i].main,"\n")
 
 Main1 = new.joueurs[0].main
 Main2 = new.joueurs[1].main
 print(Main1)
 print(Main2)
 
-""" Problème à partir d'ici
 Combinaison1 = pokerlib.Combinaison(Main1)
 Combinaison2 = pokerlib.Combinaison(Main2)
 print(Combinaison1.name(), Combinaison2.name())
-"""
+
+

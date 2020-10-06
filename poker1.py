@@ -27,32 +27,32 @@ class Croupier:
         #Carte.__init__(self)    #Appel de la classe mère
         self.paquet=[]  #Initialisation du paquet
         
-    def rassembler(self):   #Méthode: Créer le paquet
+    def rassembler(self):   #Méthode: Crée le paquet
         for couleur in ["P","C","K","T"]:
           for rang in ["2","3","4","5","6","7","8","9","X","V","D","R","A"]:
             carte = Carte(couleur, rang)
             self.paquet.append(carte)
 
-    def melanger(self): #Méthode: Mélanger le paquet
+    def melanger(self): #Méthode: Mélange le paquet
         random.shuffle(self.paquet)
 
-    def couper(self):   #Méthode: Couper le paquet
-        liste_t1=[]     #Liste temporaire  1
+    def couper(self):   #Méthode: Coupe le paquet
+        liste_t1=[]     #Liste temporaire 1
         liste_t2=[]     #Liste temporaire 2
         a=random.randint(0,52)  #Valeur aléatoire
         for i in range(0,a):
-          liste_t1.append(self.paquet[i])   #Ajouter de [0] à [a] les éléments de paquet à la liste temporaire 1
+          liste_t1.append(self.paquet[i])   #Ajoute de [0] à [a] les éléments de paquet à la liste temporaire 1
         for i in range (a,52):
-          liste_t2.append(self.paquet[i])   #Ajouter de [a] à [52] les éléments de paquet à la liste temporaire 2
+          liste_t2.append(self.paquet[i])   #Ajoute de [a] à [52] les éléments de paquet à la liste temporaire 2
 
         self.paquet=liste_t2+liste_t1       #Paquet est maintenant égal à liste temporaire 2 plus liste temporaire 1
 
-    def nouvelle_donne(self):   #Méthode: Créer un paquet en le mélangeant puis en le coupant
+    def nouvelle_donne(self):   #Méthode: Crée un paquet en le mélangeant puis en le coupant
         self.rassembler()
         self.melanger()
         self.couper()
 
-    def distribuer(self, n): #Méthode: Distribuer 5 cartes à chaque joueurs
+    def distribuer(self, n): #Méthode: Distribue 5 cartes à chaque joueurs
         for i in range(len(Partie.joueurs)):
             for j in range(n):
                 Partie.joueurs[i].recevoir_main(self.paquet[0])
@@ -66,13 +66,13 @@ class Joueur(Croupier):
         self.main=[]
         self.tapis=tapis
 
-    def vider_main(self): #Méthode: Supprimer la main du joueur
+    def vider_main(self): #Méthode: Supprime la main du joueur
         self.main.clear()
 
     def recevoir_main(self, carte):
         self.main.append(carte)
 
-    def evaluer(self): #Méthode: Dire quel main est la plus forte
+    def evaluer(self): #Méthode: Permet de savoir quel main est la plus forte
         if Combinaison1 > Combinaison2:
             print("La Main 1 est plus forte que la Main 2") 
         elif Combinaison1 == Combinaison2 :
@@ -93,31 +93,26 @@ class Coup(Croupier,Partie):
     def nouvelle_donne(self):
         pass
 
-#Test
+#Test du Croupier + initialisation de 2 joueurs et comparaison de deux mains (joueur 1 et 2)
+def test_paquet():
+    return print(f"{a.paquet}\nLongeur du paquet: {len(a.paquet)}\n")
+    
 new = Partie()
 new.jouer("Tony")
 new.jouer("Alexandre")
 
 a = Croupier()
 a.nouvelle_donne()
-print("Longeur du paquet: ",len(a.paquet))
-print("\n",a.paquet,"\n")
+test_paquet()
 
 a.distribuer(5)
-print("Longeur du paquet: ",len(a.paquet))
-print("\n",a.paquet,"\n")
+test_paquet()
 
 for i in range (0,len(new.joueurs)):
-    print("Joueur",i,":",new.joueurs[i])
-    print("Main de",i,":",new.joueurs[i].main,"\n")
+    print(f"Le joueur n°{i} est {new.joueurs[i]} et sa main est {new.joueurs[i].main}\n")
 
-Main1 = new.joueurs[0].main
-Main2 = new.joueurs[1].main
-print(Main1)
-print(Main2)
-
-Combinaison1 = pokerlib.Combinaison(Main1)
-Combinaison2 = pokerlib.Combinaison(Main2)
-print("Main1:",Combinaison1.name(),"\nMain2:",Combinaison2.name())
+Combinaison1 = pokerlib.Combinaison(new.joueurs[0].main)
+Combinaison2 = pokerlib.Combinaison(new.joueurs[1].main)
+print("Main 1:",Combinaison1.name(),"\nMain 2:",Combinaison2.name())
 
 new.joueurs[0].evaluer()

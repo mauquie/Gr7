@@ -48,9 +48,15 @@ class Croupier(Carte):
         self.melanger()
         self.couper()
 
+    def distribuer(self, n): #Méthode: Distribuer 5 cartes à chaque joueurs
+        for i in range(len(Partie.joueurs)):
+            for j in range(n):
+                Partie.joueurs[i].recevoir_main(self.paquet[0])
+                self.paquet.pop(0)
+
 class Joueur(Croupier):
 
-    def __init__(self, tapis, nom, combinaison):
+    def __init__(self, tapis, nom):
         Croupier.__init__(self)
         self.nom=nom
         self.main=[]
@@ -59,14 +65,10 @@ class Joueur(Croupier):
     def vider_main(self): #Méthode: Supprimer la main du joueur
         self.main.clear()
 
-    def recevoir_main(self): #Méthode: Ajouter 5 cartes à la main et supprimer la main si elle est pleine
-        if len(self.main)!=0:
-            Joueur.vider_main()
-        for i in range (5):
-            self.main.append(self.paquet[-1])
-            self.paquet.pop()
+    def recevoir_main(self, carte):
+        self.main.append(carte)
 
-    def evaluer(self,Combinaison): #Méthode: Dire quel main est la plus forte
+    def evaluer(self): #Méthode: Dire quel main est la plus forte
         if Combinaison1 > Combinaison2:
             print("La Main 1 est plus forte que la Main 2") 
         elif Combinaison1 == Combinaison2 :
@@ -84,31 +86,31 @@ class Coup(Croupier,Partie):
     def nouvelle_donne(self):
         pass
 
-"""   
-def test_croupier():
-    a = Croupier()
-    paquet=a.paquet
-    def afficher_paquet(paquet):
-        print("Longeur du paquet: ",len(a.paquet))
-        print("\n",a.paquet,"\n")
-    afficher_paquet(paquet)
-    a.rassembler()
-    afficher_paquet(paquet)
-    a.melanger()
-    afficher_paquet(paquet)
-    a.couper()
-    afficher_paquet(paquet)
-test_croupier()
-"""
-
-"""
-new = Joueur()
+#Test
+new = Partie()
 new.jouer("Tony")
-new.joueurs
-"""
+new.jouer("Alexandre")
 
-Main1 = [Carte(), Carte(), Carte(), Carte(), Carte()] 
-Main2 = [Carte(), Carte(), Carte(), Carte(), Carte()]
+a = Croupier()
+a.nouvelle_donne()
+print("Longeur du paquet: ",len(a.paquet))
+print("\n",a.paquet,"\n")
+
+a.distribuer(5)
+print("Longeur du paquet: ",len(a.paquet))
+print("\n",a.paquet,"\n")
+
+for i in range (0,len(new.joueurs)):
+    print("Joueur",i,":",new.joueurs[i])
+    print("Main de",i,":",new.joueurs[i].main)
+
+"""
+Main1 = [new.joueurs[0].main] 
+Main2 = [new.joueurs[1].main]
+print(Main1,Main2)
+
 Combinaison1 = pokerlib.Combinaison(Main1)
 Combinaison2 = pokerlib.Combinaison(Main2)
 print(Combinaison1.name(), Combinaison2.name())
+"""
+

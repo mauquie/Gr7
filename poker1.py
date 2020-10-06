@@ -86,7 +86,7 @@ class Coup(Croupier,Partie):
     def nouvelle_donne(self):
         pass
 
-#Test
+#Test avec 2 joueurs
 new = Partie()
 new.jouer("Tony")
 new.jouer("Alexandre")
@@ -104,13 +104,13 @@ for i in range (0,len(new.joueurs)):
     print("Joueur",i,":",new.joueurs[i])
     print("Main de",i,":",new.joueurs[i].main)
 
-"""
-Main1 = [new.joueurs[0].main] 
-Main2 = [new.joueurs[1].main]
-print(Main1,Main2)
+Main1 = new.joueurs[0].main
+Main2 = new.joueurs[1].main
+print(Main1)
+print(Main2)
 
+""" Problème à partir d'ici
 Combinaison1 = pokerlib.Combinaison(Main1)
 Combinaison2 = pokerlib.Combinaison(Main2)
 print(Combinaison1.name(), Combinaison2.name())
 """
-

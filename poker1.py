@@ -3,12 +3,12 @@ import pokerlib
 
 class Partie:
 
-    joueurs = []
+    joueurs = [] #Initilisation de la liste des joueurs
     
     def __init__(self):
         pass
 
-    def jouer(self, tapis="500", nom="Joueur"):
+    def jouer(self, tapis="500", nom="Joueur"): #Initilisation des joueurs
         joueur = Joueur(tapis,nom)
         Partie.joueurs.append(joueur)
 
@@ -56,24 +56,24 @@ class Joueur(Croupier):
         self.main=[]
         self.tapis=tapis
 
-    def vider_main(self):
+    def vider_main(self): #Méthode: Supprimer la main du joueur
         self.main.clear()
 
-    def Evaluer(self,Combinaison):
-        if Combinaison1 > Combinaison2:
-            print("La Main 1 est plus forte que la Main 2") 
-        elif combinaison1 == combinaison2 :
-            print("La Main 1 et la Main 2 ont la même valeur") 
-        else:
-            print("La Main 2 est plus forte que la Main 1")
-            # ou encore combinaison_max = max([combinaison1, combinaison2])
-
-    def recevoir_main(self):
+    def recevoir_main(self): #Méthode: Ajouter 5 cartes à la main et supprimer la main si elle est pleine
         if len(self.main)!=0:
             Joueur.vider_main()
         for i in range (5):
             self.main.append(self.paquet[-1])
             self.paquet.pop()
+
+    def evaluer(self,Combinaison): #Méthode: Dire quel main est la plus forte
+        if Combinaison1 > Combinaison2:
+            print("La Main 1 est plus forte que la Main 2") 
+        elif Combinaison1 == Combinaison2 :
+            print("La Main 1 et la Main 2 ont la même valeur") 
+        else:
+            print("La Main 2 est plus forte que la Main 1")
+            # ou encore combinaison_max = max([combinaison1, combinaison2])
 
 class Coup(Croupier,Partie):
 
@@ -91,23 +91,24 @@ def test_croupier():
     def afficher_paquet(paquet):
         print("Longeur du paquet: ",len(a.paquet))
         print("\n",a.paquet,"\n")
-
     afficher_paquet(paquet)
-
     a.rassembler()
     afficher_paquet(paquet)
-
     a.melanger()
     afficher_paquet(paquet)
-
     a.couper()
     afficher_paquet(paquet)
-
 test_croupier()
+"""
+
+"""
+new = Joueur()
+new.jouer("Tony")
+new.joueurs
 """
 
 Main1 = [Carte(), Carte(), Carte(), Carte(), Carte()] 
 Main2 = [Carte(), Carte(), Carte(), Carte(), Carte()]
-Combinaison1 = pokerlib.Combinaison(main1)
-Combinaison2 = pokerlib.Combinaison(main2)
+Combinaison1 = pokerlib.Combinaison(Main1)
+Combinaison2 = pokerlib.Combinaison(Main2)
 print(Combinaison1.name(), Combinaison2.name())

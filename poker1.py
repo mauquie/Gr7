@@ -120,4 +120,4 @@ Combinaison1 = pokerlib.Combinaison(Main1)
 Combinaison2 = pokerlib.Combinaison(Main2)
 print("Main1:",Combinaison1.name(),"\nMain2:",Combinaison2.name())
 
-
+new.joueurs[0].evaluer()

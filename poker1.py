@@ -8,7 +8,7 @@ class Partie:
     def __init__(self):
         pass
 
-    def jouer(self, nom="Joueur", tapis="500"): #Initilisation des joueurs
+    def jouer(self, nom="Joueur", tapis="500"): #Méthode: Initilisation des joueurs
         joueur = Joueur(tapis,nom)
         Partie.joueurs.append(joueur)
 
@@ -93,7 +93,13 @@ class Coup(Croupier,Partie):
     def nouvelle_donne(self):
         pass
 
-#Test du Croupier + initialisation de 2 joueurs et comparaison de deux mains (joueur 1 et 2)
+"""
+Test:
+- Croupier
+- Initialisation de 2 joueurs
+- Comparaison de deux mains (joueur 1 et 2)
+"""
+
 def test_paquet():
     return print(f"{a.paquet}\nLongeur du paquet: {len(a.paquet)}\n")
     

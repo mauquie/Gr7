@@ -1,8 +1,12 @@
+-------------------------------
 Tony:
 Classe: Partie, Carte, Croupier
+-------------------------------
 Alexandre:
 Classe: Croupier
+-------------------------------
 Rayane:
 Classe: Joueur
-
+-------------------------------
 Reste: Coup
+-------------------------------

@@ -75,11 +75,36 @@ class Joueur(Croupier):
     def evaluer(self): #Méthode: Dire quel main est la plus forte
         if Combinaison1 > Combinaison2 > Combinaison3 > Combinaison4:
          print("La Main 1 est plus forte que la Main 2,la Main 3 et la Main 4") 
+        elif Combinaison1 > Combinaison2 > Combinaison4 > Combinaison3 :
+            print("La Main 1 est plus forte que la Main 2,la Main 3 et la Main 4")
+        elif Combinaison1 > Combinaison3 > Combinaison2 > Combinaison4 :
+            print("La Main 1 est plus forte que la Main 2,la Main 3 et la Main 4")
+        elif Combinaison1 > Combinaison3 > Combinaison4 > Combinaison2 :
+            print("La Main 1 est plus forte que la Main 2,la Main 3 et la Main 4")
+        elif Combinaison1 > Combinaison4 > Combinaison2 > Combinaison3 :
+            print("La Main 1 est plus forte que la Main 2,la Main 3 et la Main 4")
+        elif Combinaison1 > Combinaison4 > Combinaison3 > Combinaison2 :
+            print("La Main 1 est plus forte que la Main 2,la Main 3 et la Main 4")
+        
         elif Combinaison1 == Combinaison2 == Combinaison3 == Combinaison4 :
             print("La Main 1,la Main 2,la Main 3 et la Main 4 ont la même valeur")
+        
         elif Combinaison2 > Combinaison1 > Combinaison3 > Combinaison4:
             print("La Main 2 est plus forte que la Main 1,la Main 3 et la Main 4")
+        elif Combinaison2 > Combinaison1 > Combinaison4 > Combinaison3:
+            print("La Main 2 est plus forte que la Main 1,la Main 3 et la Main 4")
+        elif Combinaison2 > Combinaison3 > Combinaison1 > Combinaison4:
+            print("La Main 2 est plus forte que la Main 1,la Main 3 et la Main 4")
+        elif Combinaison2 > Combinaison3 > Combinaison4 > Combinaison1:
+            print("La Main 2 est plus forte que la Main 1,la Main 3 et la Main 4")
+        elif Combinaison2 > Combinaison4 > Combinaison1 > Combinaison3:
+            print("La Main 2 est plus forte que la Main 1,la Main 3 et la Main 4")
+        elif Combinaison2 > Combinaison4 > Combinaison3 > Combinaison1:
+            print("La Main 2 est plus forte que la Main 1,la Main 3 et la Main 4")
+        
         elif Combinaison3 > Combinaison1 > Combinaison2 > Combinaison4:
+            print("La Main 3 est plus forte que la Main 1,la Main 2 et la Main 4")
+        elif Combinaison3 > Combinaison1 > Combinaison4 > Combinaison2:
             print("La Main 3 est plus forte que la Main 1,la Main 2 et la Main 4")
         elif Combinaison3 > Combinaison2 > Combinaison1 > Combinaison4:
             print("La Main 3 est plus forte que la Main 1,la Main 2 et la Main 4")
@@ -87,11 +112,22 @@ class Joueur(Croupier):
             print("La Main 3 est plus forte que la Main 1,la Main 2 et la Main 4")
         elif Combinaison3 > Combinaison4 > Combinaison2 > Combinaison1:
             print("La Main 3 est plus forte que la Main 1,la Main 2 et la Main 4")
+        elif Combinaison3 > Combinaison4 > Combinaison1 > Combinaison2:
+            print("La Main 3 est plus forte que la Main 1,la Main 2 et la Main 4")
         
-        else: 
-            print("La Main 4 est plus forte que la Main 1,la Main 2 et la Main 3")
+        elif Combinaison4 > Combinaison1 > Combinaison2 > Combinaison3:
+            print("La Main 4 est plus forte que la Main 1,la Main 2 et la Main 4")
+        elif Combinaison4 > Combinaison1 > Combinaison3 > Combinaison2:
+            print("La Main 4 est plus forte que la Main 1,la Main 2 et la Main 4")
+        elif Combinaison4 > Combinaison2 > Combinaison1 > Combinaison3:
+            print("La Main 4 est plus forte que la Main 1,la Main 2 et la Main 4")
+        elif Combinaison4 > Combinaison2 > Combinaison3 > Combinaison1:
+            print("La Main 4 est plus forte que la Main 1,la Main 2 et la Main 4")
+        elif Combinaison4 > Combinaison3 > Combinaison2 > Combinaison1:
+            print("La Main 4 est plus forte que la Main 1,la Main 2 et la Main 4")
+        elif Combinaison4 > Combinaison3 > Combinaison1 > Combinaison2:
+            print("La Main 4 est plus forte que la Main 1,la Main 2 et la Main 4")
         
-                                                              
     def __repr__(self):
         return f"{self.nom}"
 

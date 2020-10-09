@@ -24,7 +24,6 @@ class Carte:
 class Croupier:
 
     def __init__(self):
-        #Carte.__init__(self)    #Appel de la classe mère
         self.paquet=[]  #Initialisation du paquet
         
     def rassembler(self):   #Méthode: Crée le paquet
@@ -98,7 +97,6 @@ Test:
 - Croupier
 - Initialisation de 2 joueurs
 - Comparaison de deux mains (joueur 1 et 2)
-"""
 
 def test_paquet():
     return print(f"{a.paquet}\nLongeur du paquet: {len(a.paquet)}\n")
@@ -122,3 +120,43 @@ Combinaison2 = pokerlib.Combinaison(new.joueurs[1].main)
 print("Main 1:",Combinaison1.name(),"\nMain 2:",Combinaison2.name())
 
 new.joueurs[0].evaluer()
+"""
+
+#Bon on a commencé le menu mais on sait pas comment continuer car on est nul.
+def menu():
+    print("+------------------------+")
+    print("| 1: Démmarer une partie |")
+    print("| 2: Ajouter un joueur   |")
+    print("| 3: Exécuter un coup    |")
+    print("+------------------------+")
+    fin=False
+    while fin==False:
+        choix=input("Que voulez-vous faire? ")
+        if choix=="1":
+            new = Partie()
+            a = Croupier()
+            a.nouvelle_donne()
+        elif choix=="2":
+            joueur=input("Entrer le nom du joueur: ")
+            new.jouer(joueur)
+        elif choix=="3":
+            a.distribuer(5)
+            for i in range (0,len(new.joueurs)):
+                print(f"Le joueur n°{i} est {new.joueurs[i]} et sa main est {new.joueurs[i].main}\n")
+        elif choix=="": fin=True
+menu()
+
+"""
+Prototype de méthodes qui sera sans la classe Partie:
+
+def participer(self):
+    for i in range (len(joueurs)):
+        if self.verifier(i): joueurs_on.append(joueurs[i])
+    else: joueurs_off.append(joueurs[i])
+        
+def verifier(self,j):
+    if joueurs[j].tapis>=self.mise: return True
+    else: return False
+"""
+
+64009
